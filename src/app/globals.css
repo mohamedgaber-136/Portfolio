@@ -193,12 +193,17 @@ li:nth-child(4) h2 {
 /* navbar  */
 .btnTest{
   position: fixed;
-  width: 120px;
+  width: 150px;
   padding: 10px;
   background-color: black ;
-  bottom: 0px;
+  bottom: 5px;
   right: 20px;
-  height: 100px;
+  height: 50px;
+}
+@media(max-width:425px){
+  .btnTest{
+    width:120px;
+  }
 }
 .btnTestTwo{
   position: fixed;
