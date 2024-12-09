@@ -1,5 +1,5 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
+![Profile Picture](./public/Screenshot%202024-12-09%20170010.png) <!-- Replace with the path to your image -->
 ## Getting Started
 
 First, run the development server:
