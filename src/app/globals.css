@@ -2,20 +2,224 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Fallback for non-Tailwind classes */
+body {
+  /* this means apply from tailwind classes  */
+  @apply bg-background text-foreground transition-colors duration-300;
+  overflow-x: hidden
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+.dark body {
+  @apply bg-background-dark text-foreground-dark transition-colors duration-300;
+}
+/* From Uiverse.io by vinodjangid07 */ 
+#checkbox {
+  display: none;
+}
+
+
+/* SwitchBtn  */
+.switch {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  background-color: rgb(99, 99, 99);
+  border-radius: 50%;
+  z-index: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgb(126, 126, 126);
+  box-shadow: 0px 0px 3px rgb(2, 2, 2) inset;
+}
+.switch svg {
+  width: 1.2em;
+}
+.switch svg path {
+  fill: rgb(48, 48, 48);
+}
+#checkbox:checked + .switch {
+  box-shadow: 0px 0px 1px rgb(151, 243, 255) inset,
+    0px 0px 2px rgb(151, 243, 255) inset, 0px 0px 10px rgb(151, 243, 255) inset,
+    0px 0px 40px rgb(151, 243, 255), 0px 0px 100px rgb(151, 243, 255),
+    0px 0px 5px rgb(151, 243, 255);
+  border: 2px solid rgb(255, 255, 255);
+  background-color: rgb(146, 180, 184);
+}
+#checkbox:checked + .switch svg {
+  filter: drop-shadow(0px 0px 5px rgb(151, 243, 255));
+}
+#checkbox:checked + .switch svg path {
+  fill: rgb(255, 255, 255);
+}
+.SwitchBtnParent{
+  position: fixed;
+  right: 15px;
+  top: 15px;
+  z-index: 22;
+}
+/* From Uiverse.io by JulanDeAlb */ 
+.hamburger {
+  cursor: pointer;
+  position: absolute;
+  right: 55px;
+  top: 10px;
+}
+
+.hamburger input {
+  display: none;
+}
+
+.hamburger svg {
+  /* The size of the SVG defines the overall size */
+  height: 3em;
+  /* Define the transition for transforming the SVG */
+  transition: transform 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.line {
+  fill: none;
+  stroke: white;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 3;
+  /* Define the transition for transforming the Stroke */
+  transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+              stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.line-top-bottom {
+  stroke-dasharray: 12 63;
+}
+
+.hamburger input:checked + svg {
+  transform: rotate(-45deg);
+}
+
+.hamburger input:checked + svg .line-top-bottom {
+  stroke-dasharray: 20 300;
+  stroke-dashoffset: -32.42;
+}
+
+/* SwitchBtn  */
+
+
+/* loader  */
+/* navbar  */
+nav {
+  position: fixed;
+  z-index: 11;
+  width: 100vw;
+  height: 100vh;
+  transform: translateX(-100%);
+  background-color: black !important;
+  animation: navbarMotion 1s cubic-bezier(0.7, 0, 0.2, 1) 1 forwards;
+}
+
+
+@keyframes navbarMotion {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+@keyframes navbaraFterMotion {
+  0% {
+    transform: translateX(850%);
+  }
+  100% {
+    transform: translateX(250%);
+  }
+}
+
+
+li{
+  color:white;
+  font-size: 70px;
+
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+li h2{
+  position: relative;
+  animation: ListAnimation 0.5s cubic-bezier(0.7, 0, 0.2, 1) 1 forwards;
+  transform: translateX(-100vw);
+}
+
+li:nth-child(1) h2 {
+  animation-delay: 1s; /* No delay for the first one */
+}
+
+li:nth-child(2) h2 {
+  animation-delay: 1.3s; /* Delay for the second one */
+}
+
+li:nth-child(3) h2 {
+  animation-delay: 1.6s; /* Delay for the third one */
+}
+
+li:nth-child(4) h2 {
+  animation-delay: 1.9s; /* Delay for the fourth one */
+}
+
+@keyframes ListAnimation {
+  0% {
+    transform: translateX(-100vw);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+
+/* navbar  */
+.btnTest{
+  position: fixed;
+  width: 150px;
+  padding: 10px;
+  background-color: black ;
+  bottom: 0px;
+  right: 20px;
+  height: 100px;
+}
+.btnTestTwo{
+  position: fixed;
+  width: 150px;
+  padding: 10px;
+  background-color: transparent ;
+  bottom: 110px;
+  cursor: pointer;
+  z-index: 99999;
+  left: 50%;
+  transform: translateY(-50%);
+  transform: translateX(-50%);
+  height: 50px;
+}
+main{
+  max-height: 100vh;
+  min-height: 100vh;
+  min-width: 100vw;
+  background-color: black !important;
+  overflow: hidden;
+}
+canvas{
+  height: 100vh !important;
 }
