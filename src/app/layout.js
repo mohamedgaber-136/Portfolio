@@ -1,7 +1,5 @@
 import localFont from "next/font/local";
 import "./globals.css";
-
-
 const geistSans = localFont({
   src: "./fonts/PlayfairDisplay-VariableFont_wght.ttf",
   variable: "--font-geist-sans",
@@ -18,7 +16,6 @@ export default function RootLayout({ children }) {
         <meta charSet="UTF-8" />
       </head>
       <body className={`${geistSans.variable} antialiased`}>
-   
         {children}
       </body>
     </html>
