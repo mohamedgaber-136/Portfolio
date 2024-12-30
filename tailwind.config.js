@@ -7,10 +7,21 @@ module.exports = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    container: {
+      center: true, // Automatically centers the container
+      padding: '1rem', // Default padding
+      screens: {
+        sm: '100%', // Full width on small screens
+        md: '768px', // Custom width on medium screens
+        lg: '1024px', // Custom width on large screens
+        xl: '1280px', // Custom width on extra-large screens
+      }
+    },
     extend: {
+      
       colors: {
         background: {
-          DEFAULT: '#f1f0e8',
+          DEFAULT: '#ffffff',
           dark: '#000000',
         },
         foreground: {

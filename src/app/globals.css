@@ -1,12 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+@font-face {
+  font-family: "Playfair Display";
+  src: url("./fonts/PlayfairDisplay-VariableFont_wght.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+}
 /* Fallback for non-Tailwind classes */
 body {
   /* this means apply from tailwind classes  */
   @apply bg-background text-foreground transition-colors duration-300;
-  overflow-x: hidden
+  overflow-x: hidden;
+  font-family: "Playfair Display", serif;
+
 }
 
 .dark body {
@@ -74,22 +81,23 @@ body {
 
 /* loader  */
 /* navbar  */
-nav{
+nav {
   z-index: 99999;
   width: 100%;
   max-width: 80%;
   width: 500px;
-  border-radius:50px;
+  border-radius: 50px;
   position: fixed;
   bottom: 20%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   background-color: white;
   padding: 8px;
 }
+
 nav a {
-  padding:4px;
-  
+  padding: 4px;
+
 }
 
 /* navbar  */
@@ -107,80 +115,192 @@ canvas {
 }
 
 /* marque  */
-.marqueText {
-  margin: 0 20px;
-  -webkit-text-fill-color: transparent;
-  -webkit-text-stroke-color: black;
-  -webkit-text-stroke-width: 2px;
-
-  
+.marquee-container {
+  position: absolute;
+  top: 78%;
+  right: 0;
+  transform: translateY(-50%);
+  transform-origin: top right;
+  /* transform: rotate(-45deg); */
+  white-space: nowrap;
+  position: relative;
+  width: 100%;
+  color: black;
+  /* Optional: Text color */
+  padding: 10px 0;
+  /* Adjust padding */
 }
 
-.dark .marqueText {
+.marquee-content {
+  display: inline-block;
+  white-space: nowrap;
+  will-change: transform;
+  animation: marquee 35s linear infinite;
+  /* Duration and speed */
+}
+
+.ParentMarque {
+  position: relative;
+  height: 100vh;
+ 
+  overflow: hidden;
+}
+
+.dark .marquee-content span {
   -webkit-text-stroke-color: white;
 }
 
-.grandParentMarque {
-  position: relative;
-  min-height: 100vh;
-  max-height: 100vh;
-  min-width: 100vw;
-  max-width: 100vw;
-  overflow: hidden;
-
+.marquee-content span {
+  display: inline-block;
+  margin: 0 30px;
+  /* Adjust spacing */
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 3px;
+  ;
+  font-size: 20rem;
+  /* Adjust font size */
 }
-.secondParent{
-  width:10%;
-  height:100vh;
+
+@keyframes marquee {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.ProfileComponent {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  width: 100%;
+  max-width: 90%;
+  transform: translate(-50%, -50%);
+}
+
+.ProfileComponent .imageData {
+  width: 200px;
+  height: 200px;
+  /* border-radius: 50%; */
+  border-radius: 15px
+}
+.ProfileComponent .imageData img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius: 15px;
+}
+.ProfileLabels {
+  font-size: 6rem; /* Default for large screens */
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 1px;
+}
+
+
+
+@media (max-width: 1024px) {
+  .ProfileLabels {
+    font-size: 3rem; /* Small screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .ProfileLabels {
+    font-size: 2rem; /* Extra small screens */
+  }
+}
+.container {
+  width: 100%;
+  height: 100%;
+}
+
+.mainCursor > div {
+  position: absolute;
+  will-change: transform;
+  border-radius: 50%;
+  background: lightcoral;
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  opacity: 0.6;
+}
+
+.mainCursor > div:nth-child(1) {
+  width: 60px;
+  height: 60px;
+}
+
+.mainCursor > div:nth-child(2) {
+  width: 125px;
+  height: 125px;
+}
+
+.mainCursor > div:nth-child(3) {
+  width: 75px;
+  height: 75px;
+}
+
+.mainCursor > div::after {
+  content: "";
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.mainCursor > div:nth-child(2)::after {
+  top: 35px;
+  left: 35px;
+  width: 35px;
+  height: 35px;
+}
+
+.mainCursor > div:nth-child(3)::after {
+  top: 25px;
+  left: 25px;
+  width: 25px;
+  height: 25px;
+}
+
+.mainCursor {
+  
+  position: fixed;
+  width: 100vw;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  filter: url("#blob");
+  overflow: hidden;
+  background: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: default;
+}
+.HomeIntro{
+  min-width: 100vw;
+  min-height:100vh;
   --color: #E1E1E1;
-  background-color: #f1f0e8;
+  background-color: #ffffff;
   background-image: linear-gradient(0deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%,transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%,transparent),
       linear-gradient(90deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%,transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%,transparent);
-  background-size: 55px 55px;
+  background-size: 105px 105px;
 }
-.MarqueParent {
-  position: absolute;
-
-  top: 0;
-  right: 0;
-  transform-origin: top right;
-  /* Pivot the rotation from the top-right corner */
-  transform: rotate(-45deg);
-  /* Rotate to create a diagonal line */
+.test-btn{
+  position: relative;
+  z-index: 999999999999999999999999999999;
 }
-
-.MarqueParentTwo {
-  position: absolute;
-  top: 0;
-  right: 0;
-  transform-origin: top left;
-  /* Pivot the rotation from the top-right corner */
-  transform: rotate(45deg);
-}
-
-.MarqueParentTwo img {
-  margin: 0 100px;
-  width: 125px;
-  object-fit: cover;
-}
-
-@media(max-width:767px){
-  .MarqueParent {
-    position: absolute;
-    top:calc(100vh - 150px);
-    right: 0;
-    /* Pivot the rotation from the top-right corner */
-    transform: rotate(0);
-    /* Rotate to create a diagonal line */
-  }
-  .MarqueParentTwo {
-    position: absolute;
-    top:calc(100vh - 300px);
-    right: 0;
-    /* Pivot the rotation from the top-right corner */
-    transform: rotate(0);
-    /* Rotate to create a diagonal line */
-  }
-}
-
 /* marque  */
+/* social Media  */
+/* From Uiverse.io by david-mohseni */
+
+
+/* social Media  */

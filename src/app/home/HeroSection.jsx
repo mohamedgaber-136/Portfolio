@@ -1,13 +1,12 @@
 import React from 'react'
 import { MarqueOne } from './MarqueOne'
-import { MarqueTwo } from './MarqueTwo'
+import { ProfleComp } from './ProfleComp'
 
 export const HeroSection = () => {
   return (
-    <div className="grandParentMarque">
-        <div className="secondParent"></div>
+    <div className="ParentMarque">
    <MarqueOne/>
-   {/* <MarqueTwo/> */}
+   <ProfleComp/>
     </div>
   )
 }
