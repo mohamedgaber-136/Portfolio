@@ -8,8 +8,8 @@ export default function MainPage() {
   return (
     <div className='flex container HomeIntro gap-4 flex-col items-center justify-start'>
     
-    <BlurText text="Welcome To My Website" className="custom-class" delay={500}/>
-    <SplitText text="Hi there! I'm Mohamed Gaber, a frontend developer who turns caffeine into code and pixels into perfection! " className="custom-class" delay={100} />
+    <BlurText text="Welcome To My Website"  delay={500}/>
+    <SplitText text="Hi there! I'm Mohamed Gaber, a frontend developer who turns caffeine into code and pixels into perfection! "  delay={100} />
     <BlobCursor/>
   <Link href='/home' className='p-2 bg-background-dark test-btn text-white rounded-md border-2 border-solid'>Home</Link>
     </div>

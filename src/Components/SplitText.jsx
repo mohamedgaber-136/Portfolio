@@ -39,7 +39,7 @@ export const SplitText = ({ text, className = '', delay = 100 }) => {
 
   return (
     <p
-      className={`inline-block text-center ${className}`}
+      className={`inline-block text-center  text-3xl text-center sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl  ${className}`}
       ref={ref}
     >
       {springs.map((props, index) => (
